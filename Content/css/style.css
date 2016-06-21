@@ -54,6 +54,8 @@ address {
 
 p {
     margin-bottom: 20px;
+    font-weight: bold;
+	 
 }
 
 input, textarea {
@@ -148,6 +150,7 @@ ul {
 
 
 a {
+font-weight: bold;
     text-decoration: none;
     color: inherit;
     outline: none;

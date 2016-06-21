@@ -83,6 +83,7 @@
                             }
                         }
                     }
+                
                 </div>
 
 
@@ -119,7 +120,7 @@
 
 
                                                     <br /><br />
-                                                    <div id="profilePic"><img src="~/Content/SiteImages/@user.profilePic" height="50" width="50" /><strong style="font-size:1.5em">@comments.firstName @comments.lastName</strong></div>
+                                                    <div id="profilePic"><img src="~/Content/SiteImages/@comments.User.profilePic" height="50" width="50" /><strong style="font-size:1.5em">@comments.firstName @comments.lastName</strong></div>
                                                     <div id="cmnt" style="    text-align: center;
     padding: 1px;
     margin: 1px;
@@ -190,7 +191,8 @@
                    {
                     @Html.HiddenFor(model => Model.Id)
                
-                    @Html.HiddenFor(model => user.Id)
+                   
+                   
                     <div class="tmInput">
                         <input name="Name" placeHolder="Name:" type="text" data-constraints='NotEmpty Required AlphaSpecial'>
                     </div>
@@ -242,6 +244,7 @@
                            }
                            else if (user != null && user.type.Equals("User"))
                            {
+                            @Html.HiddenFor(model => user.Id)
                             <button type="submit" name="button1" class="button1" value="Send" style="background-color:#008000">Clear </button>
                             <button type="submit" name="button2" class="button1" value="Send" style="background-color:#008000">Send </button>
 

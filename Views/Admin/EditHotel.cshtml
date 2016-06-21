@@ -66,7 +66,7 @@
                                 @Html.TextBoxFor(m => m.picturePath, new { type = "file", @class = "form-control", @align = "left", @style = "display:inline ; width:350px" })
 
 
-                                <img id="pic" align="right" height="70" width="70" style="margin-right:40px" src="../SiteImages/profile.jpg">
+                                <img id="pic" align="right" height="70" width="70" style="margin-right:40px" src="~/Content/SiteImages/hotel3.jpg">
                                 @Html.ValidationMessageFor(m => Model.picturePath)
                             </div>
                             <div style="margin-top:40px" align="center" id="msgbox"></div>
@@ -82,6 +82,15 @@
 
 <script>
     $(document).ready(function () {
+
+        $("#picturePath").change(function () {
+      
+            var fileName = $(this).val();
+            var tmppath = URL.createObjectURL(event.target.files[0]);
+            $('#pic').attr('src', tmppath);
+        });
+
+
         $('#username').focusout(function () {
 
             var userName = $('#username').val();

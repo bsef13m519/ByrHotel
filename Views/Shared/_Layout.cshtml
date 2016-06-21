@@ -98,6 +98,7 @@
     {
 
         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home" ? "active" : "")">@Html.ActionLink("Home", "Index", "Admin")</li>
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "AddHotel" ? "active" : "")">@Html.ActionLink("View/Edit Hotel", "Hotels", "Hotel")</li>
         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "AddHotel" ? "active" : "")">@Html.ActionLink("Add Hotel", "AddHotel", "Admin")</li>
 
         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "BlockUnBlockUser" ? "active" : "")">@Html.ActionLink("Block/Unblock User", "BlockUnBlockUser", "Admin")</li>
@@ -114,7 +115,7 @@
 
     if (session != null)
     {
-        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Profile" ? "active" : "")">@Html.ActionLink(@session.firstName+"'s Profile", "EditProfile", new { id = session.Id})</li>
+        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Profile" ? "active" : "")">@Html.ActionLink(@session.firstName+"'s Profile", "EditProfile","Home" ,new { id = session.Id},null)</li>
 
                                         <li><img src="~/Content/SiteImages/@session.profilePic" height="80" width="80" alt="Logo alt"/></li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Login" ? "active" : "")">@Html.ActionLink("Logout", "Logout", "Home")</li>
@@ -212,7 +213,7 @@
                             <div class="form-group">
                                @Html.TextBoxFor(m => m.profilePic, new { type = "file", @class = "form-control" ,@align="left", @style = "display:inline ; width:350px" })
                               @Html.ValidationMessageFor(m => Model.profilePic)
-                                  <img id="pic" align ="right" height="70" width="70" style="margin-right:40px" src="~/SiteImages//profile.jpg" >
+                                  <img id="pic" align ="right" height="70" width="70" style="margin-right:40px" src="~/Content/SiteImages/profile.jpg" >
                             </div>
                             <div style="margin-top:40px" align="center" id="msgbox"></div>
                           <button type="submit" id="btn_submit" class="btn">Sign me up!</button>
