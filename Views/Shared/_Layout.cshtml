@@ -116,7 +116,7 @@
     {
         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Profile" ? "active" : "")">@Html.ActionLink(@session.firstName+"'s Profile", "EditProfile", new { id = session.Id})</li>
 
-                                        <li><img src="~/Content/UserProfileImages/@session.profilePic" height="80" width="80" alt="Logo alt"/></li>
+                                        <li><img src="~/Content/SiteImages/@session.profilePic" height="80" width="80" alt="Logo alt"/></li>
                                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Login" ? "active" : "")">@Html.ActionLink("Logout", "Logout", "Home")</li>
                                         }
                                         else

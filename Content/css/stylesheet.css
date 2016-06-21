@@ -1,0 +1,33 @@
+.starRating:not(old){
+  display        : inline-block ;
+  width          : 7.5em;
+  height         : 1.5em;
+  overflow       : hidden;
+  vertical-align : auto;
+}
+
+.starRating:not(old) > input{
+  margin-left : -100%;
+  opacity      : 0;
+}
+
+.starRating:not(old) > label{
+  display         : block;
+  float           : left;
+  position        : relative;
+  background      : url('star-off.svg');
+  background-size : contain;
+}
+
+.starRating:not(old) > label:before{
+  content         : '';
+  display         : block;
+  width           : 1.5em;
+  height          : 1.5em;
+  background      : url('star-on.svg');
+  background-size : contain;
+  opacity         : 1;
+  transition      : opacity 0.2s linear;
+}
+
+
