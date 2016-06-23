@@ -22,7 +22,7 @@
 
                                    
                                     <div class="gall_bot">
-                                        <div class="text1">@Html.ActionLink(@hotel.name, "Reservation", "Home")</div>
+                                        <div class="text1">@Html.ActionLink(@hotel.name,"Reservation", new { id = hotel.Id })</div>
                                         
                                         <p>
                                             Admin Rating:  <span class="starRating">
