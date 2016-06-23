@@ -46,7 +46,7 @@
                     @{
                         var user = (BYR.Models.User)Session["User"];
                         BYR.Models.Comment com = new BYR.Models.Comment();
-                        if (Session["User"] != null)
+                        if (Session["User"] != null && user.type.Equals("User"))
                         {
                             <h2>Leave A Comment</h2>
                             using (Html.BeginForm("Comment", "Hotel", FormMethod.Post))
@@ -54,7 +54,7 @@
 
                                 <div class="panel-body panel-300" align="left">
                                     <div class="tmTextarea" id="bookingForm">
-                                        @Html.TextAreaFor(model => com.comment1, new { @placeholder = "Leave a Comment.." })
+                                        @Html.TextAreaFor(model => com.comment1, new { @placeholder = "Leave a Comment.."  , @required = "required" })
 
                                     </div>
 
@@ -194,18 +194,18 @@
                    
                    
                     <div class="tmInput">
-                        <input name="Name" placeHolder="Name:" type="text" data-constraints='NotEmpty Required AlphaSpecial'>
+                        <input name="Name" placeHolder="Name:" type="text" data-constraints='NotEmpty Required AlphaSpecial' required>
                     </div>
                     
                     <div class="clear f_sep1"></div>
                     <strong class="dt">Check-in</strong>
                     <label class="tmDatepicker">
-                        <input type="datetime" name="Date1" placeHolder='10/05/2014' >
+                        <input type="date" name="Date1" placeHolder='10/05/2014' required>
                     </label>
                     <div class="clear"></div>
                     <strong class="dt">Check-out</strong>
                     <label class="tmDatepicker">
-                        <input type="text" name="Date2" placeHolder='20/05/2014' data-constraints="NotEmpty Required Date">
+                        <input type="date" name="Date2" placeHolder='20/05/2014' data-constraints="NotEmpty Required Date" required>
                     </label>
                     <div class="clear"></div>
                     <div class="fl1 ">
@@ -233,7 +233,7 @@
                     <div class="clear"></div>
 
                     <div class="tmTextarea">
-                        <textarea name="Message" placeHolder="Message:" data-constraints='NotEmpty Required Length(min=20,max=999999)'></textarea>
+                        <textarea name="Message" placeHolder="Message:" required data-constraints='NotEmpty Required Length(min=20,max=999999)'></textarea>
                     </div>
                     <div class="ta__right">
                        @{

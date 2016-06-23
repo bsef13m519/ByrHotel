@@ -71,7 +71,7 @@
                                 @Html.TextBoxFor(m => m.profilePic, new { type = "file", @class = "form-control", @align = "left", @style = "display:inline ; width:350px" })
                                 @Html.HiddenFor(m => m.profilePic)
 
-                                <img id="pic" align="right" height="70" width="70" style="margin-right:40px" src="~/Content/SiteImages/profile.jpg">
+                                <img id="pic" align="right" height="70" width="70" style="margin-right:40px" src="~/Content/SiteImages/@Model.profilePic">
                                 @Html.ValidationMessageFor(m => Model.profilePic)
                             </div>
                             <div style="margin-top:40px" align="center" id="msgbox"></div>

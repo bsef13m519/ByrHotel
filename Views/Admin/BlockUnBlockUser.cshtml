@@ -131,25 +131,33 @@
 
         }
 
-        #searchbox
-{
-    background-color: #eaf8fc;
-    background-image: linear-gradient(#fff, #d4e8ec);
-    border-radius: 35px;    
-    border-width: 1px;
-    border-style: solid;
-    border-color: #c4d9df #a4c3ca #83afb7;            
-    width: 500px;
-    height: 35px;
-    padding: 10px;
-    margin: 100px auto 50px;
-    overflow: hidden; /* Clear floats */
+ form {
+                width:500px;
+                margin:50px auto;
+}
+.sea {
+                padding:8px 15px;
+                background:rgba(50, 50, 50, 0.2);
+                border:0px solid #dbdbdb;
+}
+.butt {
+                position:relative;
+                padding:6px 15px;
+                left:-8px;
+                border:2px solid #207cca;
+                background-color:#207cca;
+                color:#fafafa;
+}
+.butt:hover  {
+                background-color:#fafafa;
+                color:#207cca;
 }
 </style>
 
-<form id="searchbox">
-    <input id="sea" type="text" placeholder="Type here">
-    <input id="submit" type="button" value="Search">
+
+<form>
+    <input  class="sea" id ="sea" type="text" placeholder="Search..." >
+    <input class="butt"  id="submit" type="button" value="Search">
 </form>
 
 <div class="CSSTableGenerator">
@@ -257,10 +265,9 @@
                 
 
             $.getJSON("/Admin/getUsers?sea=" + search, function (data) {
-                alert("hell");
 
                 $('#myTable').find('tbody').empty();
-                alert("hell");
+              
                 var items = '<tr><td>Id</td><td>First Name</td><td>last Name</td><td>Email</td><td>UserName</td><td>Status</td><td>Change Status</td><td>Delete User</td></tr>';
                 $.each(data, function (i, user) {
                     var block = '';
